@@ -1,0 +1,164 @@
+/* Estilos gerais */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e3f2fd;
+    color: #1e3a8a;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Impede o scroll */
+}
+
+.container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px; /* Aumenta o limite de largura */
+    overflow: hidden; /* Impede o scroll horizontal */
+    box-sizing: border-box; /* Inclui padding e bordas nas dimensões totais */
+}
+
+h1 {
+    font-size: 5rem;
+    color: #1e3a8a;
+    margin-bottom: 20px;
+}
+
+#rifa-container {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); /* 10 números por linha */
+    gap: 10px;
+    margin-bottom: 20px;
+    overflow: hidden; /* Impede a quebra dos números */
+}
+
+.numero {
+    background-color: #90caf9;
+    color: #1e3a8a;
+    border: 2px solid #1e3a8a;
+    padding: 14px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.numero:hover {
+    background-color: #64b5f6;
+    transform: scale(1.1);
+}
+
+.controls {
+    margin-top: 20px;
+}
+
+.btn-sorteio,
+.btn-reiniciar {
+    background-color: #1e3a8a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-sorteio:disabled {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+}
+
+.btn-sorteio:hover,
+.btn-reiniciar:hover {
+    background-color: #1565c0;
+}
+
+.resultado {
+    font-size: 1.9rem;
+    color: #388e3c;
+    margin-top: 20px;
+}
+
+.resultado.erro {
+    color: red;
+}
+
+/* Media Queries para telas menores */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .numero {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-sorteio,
+    .btn-reiniciar {
+        font-size: 1rem;
+        padding: 10px 15px;
+        margin: 5px;
+    }
+
+    #rifa-container {
+        grid-template-columns: repeat(5, 1fr); /* 5 números por linha em telas médias */
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    #rifa-container {
+        grid-template-columns: repeat(4, 1fr); /* 4 números por linha em telas menores */
+    }
+
+    .numero {
+        font-size: 1rem;
+        padding: 8px;
+    }
+
+    .btn-sorteio,
+    .btn-reiniciar {
+        font-size: 1rem;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    #rifa-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 números por linha em telas muito pequenas */
+    }
+
+    .numero {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .btn-sorteio,
+    .btn-reiniciar {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+}
