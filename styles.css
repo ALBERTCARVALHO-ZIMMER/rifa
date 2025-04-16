@@ -4,46 +4,43 @@ body {
     background-color: #e3f2fd;
     color: #1e3a8a;
     margin: 0;
-    padding: 0;
+    padding: 10px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden; /* Impede o scroll */
+    align-items: start;
+    min-height: 100vh;
 }
 
 .container {
     text-align: center;
     background-color: #ffffff;
-    padding: 30px;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 800px; /* Aumenta o limite de largura */
-    overflow: hidden; /* Impede o scroll horizontal */
-    box-sizing: border-box; /* Inclui padding e bordas nas dimensões totais */
+    max-width: 800px;
+    box-sizing: border-box;
 }
 
 h1 {
-    font-size: 5rem;
-    color: #1e3a8a;
+    font-size: 2rem;
     margin-bottom: 20px;
+    color: #1e3a8a;
 }
 
 #rifa-container {
     display: grid;
-    grid-template-columns: repeat(10, 1fr); /* 10 números por linha */
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
+    gap: 8px;
     margin-bottom: 20px;
-    overflow: hidden; /* Impede a quebra dos números */
 }
 
 .numero {
     background-color: #90caf9;
     color: #1e3a8a;
     border: 2px solid #1e3a8a;
-    padding: 14px;
-    font-size: 1.1rem;
+    padding: 10px 0;
+    font-size: 0.9rem;
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
@@ -52,11 +49,15 @@ h1 {
 
 .numero:hover {
     background-color: #64b5f6;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .controls {
-    margin-top: 20px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 .btn-sorteio,
@@ -64,16 +65,15 @@ h1 {
     background-color: #1e3a8a;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.1rem;
-    margin: 10px;
+    font-size: 1rem;
     transition: background-color 0.3s ease;
 }
 
 .btn-sorteio:disabled {
-    background-color: #e0e0e0;
+    background-color: #ccc;
     cursor: not-allowed;
 }
 
@@ -83,82 +83,54 @@ h1 {
 }
 
 .resultado {
-    font-size: 1.9rem;
+    font-size: 1.4rem;
     color: #388e3c;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .resultado.erro {
     color: red;
 }
 
-/* Media Queries para telas menores */
-@media (max-width: 1024px) {
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    .numero {
-        font-size: 1rem;
-        padding: 10px;
-    }
-
-    .controls {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .btn-sorteio,
-    .btn-reiniciar {
-        font-size: 1rem;
-        padding: 10px 15px;
-        margin: 5px;
-    }
-
-    #rifa-container {
-        grid-template-columns: repeat(5, 1fr); /* 5 números por linha em telas médias */
-    }
-}
-
+/* Responsividade */
 @media (max-width: 768px) {
     h1 {
-        font-size: 1.6rem;
-    }
-
-    #rifa-container {
-        grid-template-columns: repeat(4, 1fr); /* 4 números por linha em telas menores */
+        font-size: 1.5rem;
     }
 
     .numero {
-        font-size: 1rem;
-        padding: 8px;
+        font-size: 0.8rem;
+        padding: 8px 0;
     }
 
     .btn-sorteio,
     .btn-reiniciar {
-        font-size: 1rem;
-        padding: 8px 12px;
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+
+    .resultado {
+        font-size: 1.2rem;
     }
 }
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 1.4rem;
-    }
-
-    #rifa-container {
-        grid-template-columns: repeat(3, 1fr); /* 3 números por linha em telas muito pequenas */
+        font-size: 1.3rem;
     }
 
     .numero {
-        font-size: 0.9rem;
-        padding: 8px;
+        font-size: 0.7rem;
+        padding: 6px 0;
     }
 
     .btn-sorteio,
     .btn-reiniciar {
-        font-size: 0.9rem;
-        padding: 8px 12px;
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+
+    .resultado {
+        font-size: 1.1rem;
     }
 }
